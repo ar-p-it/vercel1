@@ -1,0 +1,35 @@
+<script>
+    // Function to filter project cards based on search input
+    function filterProjects(searchTerm) {
+        const projectCards = document.querySelectorAll('.project-card');
+        
+        projectCards.forEach(card => {
+            const title = card.querySelector('.project-title').textContent.toLowerCase();
+            const description = card.querySelector('.project-description').textContent.toLowerCase();
+            const language = card.querySelector('.stat:nth-child(2)').textContent.toLowerCase();
+            
+            const matches = 
+                title.includes(searchTerm) ||
+                description.includes(searchTerm) ||
+                language.includes(searchTerm);
+            
+            // Use CSS to show/hide cards
+            card.style.display = matches ? 'block' : 'none';
+        });
+    }
+
+    // Setup search functionality
+    function setupSearch() {
+        const searchInput = document.getElementById('searchInput');
+        
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase().trim();
+            filterProjects(searchTerm);
+        });
+    }
+
+    // Initialize search when the page loads
+    document.addEventListener('DOMContentLoaded', () => {
+        setupSearch();
+    });
+</script>

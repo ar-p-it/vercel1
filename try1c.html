@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Showcase</title>
+    <style>
+        /* Previous styles remain the same */
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #000;
+            color: white;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .header h1 {
+            color: #3b82f6;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            color: #9ca3af;
+        }
+
+        .profile {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid #3b82f6;
+            margin-bottom: 1rem;
+        }
+
+        .profile h2 {
+            color: #3b82f6;
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-stats {
+            color: #9ca3af;
+            margin: 1rem 0;
+        }
+
+        .profile-stats span {
+            margin: 0 1rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: #111827;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            border: 1px solid #374151;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Updated project image styles */
+        .project-image {
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.1);
+        }
+
+        .view-project {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-image:hover .view-project {
+            opacity: 1;
+        }
+
+        .view-project a {
+            color: white;
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            border: 2px solid white;
+            border-radius: 0.25rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .view-project a:hover {
+            background: white;
+            color: black;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-title {
+            color: #3b82f6;
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-description {
+            color: #9ca3af;
+            margin-bottom: 1rem;
+        }
+
+        .project-stats {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: #9ca3af;
+        }
+
+        .stat {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .language-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .search-bar {
+            width: 100%;
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 0.75rem 1rem;
+            background: #1f2937;
+            border: 1px solid #374151;
+            border-radius: 0.5rem;
+            color: white;
+            font-size: 1rem;
+        }
+
+        .search-bar:focus {
+            outline: none;
+            border-color: #3b82f6;
+        }
+
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>All Of My Projects</h1>
+            <p>Some useful, some stupid, all fun!</p>
+        </header>
+
+        <div class="profile">
+            <img src="images/PHOTO-2024-09-15-20-48-56.jpg" alt="Profile" class="profile-img">
+            <h2>Arpit Kesari - @arpit4k</h2>
+            <p>Learner 📚 | Maker 🛠️ | Explorer 🔎 | Tech Lead 🦊</p>
+            <div class="profile-stats">
+                <span>Followers: 👹</span>
+                <span>Repos: 228</span>
+                <span>Gists: 32</span>
+            </div>
+            <p>Work: @I_Do | Location: Where I Wanna Be!</p>
+        </div>
+
+        <input type="text" class="search-bar" placeholder="Search Projects" id="searchInput">
+
+        <div class="projects-grid" id="projectsGrid">
+            <!-- Project: projects -->
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="images/PHOTO-2024-09-15-20-48-56.jpg" alt="projects">
+                    <div class="view-project">
+                        <a href="https://github.com/2KAbhishek/projects" target="_blank">View Project</a>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">projects</h3>
+                    <p class="project-description">Showcase All Your Projects 🖥️📱</p>
+                    <div class="project-stats">
+                        <div class="stat">
+                            <span>⭐</span>
+                            <span>237</span>
+                        </div>
+                        <div class="stat">
+                            <span class="language-dot" style="background-color: #f1e05a;"></span>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="stat">
+                            <span>🍴</span>
+                            <span>127</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project: dots2k -->
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="/api/placeholder/600/400?text=dots2k" alt="dots2k">
+                    <div class="view-project">
+                        <a href="https://github.com/2KAbhishek/dots2k" target="_blank">View Project</a>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">dots2k</h3>
+                    <p class="project-description">Passionately Crafted CLI Setup ✨❤️</p>
+                    <div class="project-stats">
+                        <div class="stat">
+                            <span>⭐</span>
+                            <span>211</span>
+                        </div>
+                        <div class="stat">
+                            <span class="language-dot" style="background-color: #89e051;"></span>
+                            <span>Shell</span>
+                        </div>
+                        <div class="stat">
+                            <span>🍴</span>
+                            <span>23</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project: termux2k -->
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="images/PHOTO-2024-09-15-20-48-56.jpg" alt="termux2k">
+                    <div class="view-project">
+                        <a href="https://github.com/2KAbhishek/termux2k" target="_blank">View Project</a>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">termux2k</h3>
+                    <p class="project-description">CLI Dev Setup in Your Hands ✌️📱</p>
+                    <div class="project-stats">
+                        <div class="stat">
+                            <span>⭐</span>
+                            <span>121</span>
+                        </div>
+                        <div class="stat">
+                            <span class="language-dot" style="background-color: #89e051;"></span>
+                            <span>Shell</span>
+                        </div>
+                        <div class="stat">
+                            <span>🍴</span>
+                            <span>25</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="images/PHOTO-2024-09-15-20-48-56.jpg" alt="projects">
+                    <div class="view-project">
+                        <a href="https://github.com/2KAbhishek/projects" target="_blank">View Project</a>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">projects</h3>
+                    <p class="project-description">Showcase All Your Projects 🖥️📱</p>
+                    <div class="project-stats">
+                        <div class="stat">
+                            <span>⭐</span>
+                            <span>237</span>
+                        </div>
+                        <div class="stat">
+                            <span class="language-dot" style="background-color: #f1e05a;"></span>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="stat">
+                            <span>🍴</span>
+                            <span>127</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project: dots2k -->
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="/api/placeholder/600/400?text=dots2k" alt="dots2k">
+                    <div class="view-project">
+                        <a href="https://github.com/2KAbhishek/dots2k" target="_blank">View Project</a>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">dots2k</h3>
+                    <p class="project-description">Passionately Crafted CLI Setup ✨❤️</p>
+                    <div class="project-stats">
+                        <div class="stat">
+                            <span>⭐</span>
+                            <span>211</span>
+                        </div>
+                        <div class="stat">
+                            <span class="language-dot" style="background-color: #89e051;"></span>
+                            <span>Shell</span>
+                        </div>
+                        <div class="stat">
+                            <span>🍴</span>
+                            <span>23</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project: termux2k -->
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="images/PHOTO-2024-09-15-20-48-56.jpg" alt="termux2k">
+                    <div class="view-project">
+                        <a href="https://github.com/2KAbhishek/termux2k" target="_blank">View Project</a>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">termux2k</h3>
+                    <p class="project-description">CLI Dev Setup in Your Hands ✌️📱</p>
+                    <div class="project-stats">
+                        <div class="stat">
+                            <span>⭐</span>
+                            <span>121</span>
+                        </div>
+                        <div class="stat">
+                            <span class="language-dot" style="background-color: #89e051;"></span>
+                            <span>Shell</span>
+                        </div>
+                        <div class="stat">
+                            <span>🍴</span>
+                            <span>25</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="images/PHOTO-2024-09-15-20-48-56.jpg" alt="projects">
+                    <div class="view-project">
+                        <a href="https://github.com/2KAbhishek/projects" target="_blank">View Project</a>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">projects</h3>
+                    <p class="project-description">Showcase All Your Projects 🖥️📱</p>
+                    <div class="project-stats">
+                        <div class="stat">
+                            <span>⭐</span>
+                            <span>237</span>
+                        </div>
+                        <div class="stat">
+                            <span class="language-dot" style="background-color: #f1e05a;"></span>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="stat">
+                            <span>🍴</span>
+                            <span>127</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project: dots2k -->
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="/api/placeholder/600/400?text=dots2k" alt="dots2k">
+                    <div class="view-project">
+                        <a href="https://github.com/2KAbhishek/dots2k" target="_blank">View Project</a>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">dots2k</h3>
+                    <p class="project-description">Passionately Crafted CLI Setup ✨❤️</p>
+                    <div class="project-stats">
+                        <div class="stat">
+                            <span>⭐</span>
+                            <span>211</span>
+                        </div>
+                        <div class="stat">
+                            <span class="language-dot" style="background-color: #89e051;"></span>
+                            <span>Shell</span>
+                        </div>
+                        <div class="stat">
+                            <span>🍴</span>
+                            <span>23</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project: termux2k -->
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="images/PHOTO-2024-09-15-20-48-56.jpg" alt="termux2k">
+                    <div class="view-project">
+                        <a href="https://github.com/2KAbhishek/termux2k" target="_blank">View Project</a>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">ciggerate</h3>
+                    <p class="project-description">CLI Dev Setup in Your Hands ✌️📱</p>
+                    <div class="project-stats">
+                        <div class="stat">
+                            <span>⭐</span>
+                            <span>121</span>
+                        </div>
+                        <div class="stat">
+                            <span class="language-dot" style="background-color: #89e051;"></span>
+                            <span>Shell</span>
+                        </div>
+                        <div class="stat">
+                            <span>🍴</span>
+                            <span>25</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add more project cards here following the same structure -->
+
+        </div>
+    </div>
+
+    <!-- <script>
+        const projects = [
+            {
+                title: "projects",
+                description: "Showcase All Your Projects 🖥️📱",
+                stars: 237,
+                language: "JavaScript",
+                languageColor: "#f1e05a",
+                forks: 127,
+                details: {
+                    repo: "https://github.com/2KAbhishek/projects",
+                    demo: "https://2kabhishek.github.io/projects"
+                }
+            },
+            {
+                title: "dots2k",
+                description: "Passionately Crafted CLI Setup ✨❤️",
+                stars: 211,
+                language: "Shell",
+                languageColor: "#89e051",
+                forks: 23,
+                details: {
+                    repo: "https://github.com/2KAbhishek/dots2k"
+                }
+            },
+            {
+                title: "termux2k",
+                description: "CLI Dev Setup in Your Hands ✌️📱",
+                stars: 121,
+                language: "Shell",
+                languageColor: "#89e051",
+                forks: 25,
+                details: {
+                    repo: "https://github.com/2KAbhishek/termux2k"
+                }
+            },
+            {
+                title: "tmux2k",
+                description: "Make tmux powerful and pretty 🎨🚀",
+                stars: 114,
+                language: "Shell",
+                languageColor: "#89e051",
+                forks: 9,
+                details: {
+                    repo: "https://github.com/2KAbhishek/tmux2k"
+                }
+            },
+            {
+                title: "nvim2k",
+                description: "Your Personalized Dev Env ❤️💫",
+                stars: 101,
+                language: "Lua",
+                languageColor: "#000080",
+                forks: 9,
+                details: {
+                    repo: "https://github.com/2KAbhishek/nvim2k"
+                }
+            },
+            {
+                title: "nerdy.nvim",
+                description: "Find Nerd Glyphs Easily 😎⚡",
+                stars: 100,
+                language: "Lua",
+                languageColor: "#000080",
+                forks: 1,
+                details: {
+                    repo: "https://github.com/2KAbhishek/nerdy.nvim"
+                }
+            }
+        ];
+
+        // // Function to generate random image URL
+        // function getRandomImage(index) {
+        //     const themes = ['technology', 'programming', 'abstract', 'nature'];
+        //     const theme = themes[index % themes.length];
+        //     const width = 600;
+        //     const height = 400;
+        //     return `/api/placeholder/${width}/${height}`;
+        // }
+
+        function createProjectCard(project, index) {
+            return `
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="${getRandomImage(index)}" alt="${project.title}">
+                        <div class="view-project">
+                            <a href="${project.details.repo}" target="_blank">View Project</a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">${project.title}</h3>
+                        <p class="project-description">${project.description}</p>
+                        <div class="project-stats">
+                            <div class="stat">
+                                <span>⭐</span>
+                                <span>${project.stars}</span>
+                            </div>
+                            <div class="stat">
+                                <span class="language-dot" style="background-color: ${project.languageColor}"></span>
+                                <span>${project.language}</span>
+                            </div>
+                            <div class="stat">
+                                <span>🍴</span>
+                                <span>${project.forks}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderProjects(projectsList) {
+            const projectsGrid = document.getElementById('projectsGrid');
+            projectsGrid.innerHTML = projectsList.map((project, index) => createProjectCard(project, index)).join('');
+        }
+
+        // function setupSearch() {
+        //     const searchInput = document.getElementById('searchInput');
+        //     searchInput.addEventListener('input', (e) => {
+        //         const searchTerm = e.target.value.toLowerCase();
+        //         const filteredProjects = projects.filter(project => 
+        //             project.title.toLowerCase().includes(searchTerm) ||
+        //             project.description.toLowerCase().includes(searchTerm) ||
+        //             project.language.toLowerCase().includes(searchTerm)
+        //         );
+        //         renderProjects(filteredProjects);
+        //     });
+        // }
+
+        // Initial render
+        renderProjects(projects);
+        // setupSearch();
+
+        function filterProjects(searchTerm) {
+        const projectCards = document.querySelectorAll('.project-card');
+        
+        projectCards.forEach(card => {
+            const title = card.querySelector('.project-title').textContent.toLowerCase();
+            const description = card.querySelector('.project-description').textContent.toLowerCase();
+            const language = card.querySelector('.stat:nth-child(2)').textContent.toLowerCase();
+            
+            const matches = 
+                title.includes(searchTerm) ||
+                description.includes(searchTerm) ||
+                language.includes(searchTerm);
+            
+            // Use CSS to show/hide cards
+            card.style.display = matches ? 'block' : 'none';
+        });
+    }
+
+    // Setup search functionality
+    function setupSearch() {
+        const searchInput = document.getElementById('searchInput');
+        
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase().trim();
+            filterProjects(searchTerm);
+        });
+    }
+
+    // Initialize search when the page loads
+    document.addEventListener('DOMContentLoaded', () => {
+        setupSearch();
+    });
+
+
+
+    </script> -->
+<script>
+    // Function to filter projects based on search term
+function filterProjects(searchTerm) {
+    const projectCards = document.querySelectorAll('.project-card');
+    
+    projectCards.forEach(card => {
+        const title = card.querySelector('.project-title').textContent.toLowerCase();
+        const description = card.querySelector('.project-description').textContent.toLowerCase();
+        const language = card.querySelector('.stat:nth-child(2) span:last-child').textContent.toLowerCase();
+        
+        const matches = 
+            title.includes(searchTerm) ||
+            description.includes(searchTerm) ||
+            language.includes(searchTerm);
+        
+        card.style.display = matches ? 'block' : 'none';
+    });
+}
+
+// Setup search functionality
+function setupSearch() {
+    const searchInput = document.getElementById('searchInput');
+    
+    searchInput.addEventListener('input', (e) => {
+        const searchTerm = e.target.value.toLowerCase().trim();
+        filterProjects(searchTerm);
+    });
+}
+
+// Initialize search when the page loads
+document.addEventListener('DOMContentLoaded', () => {
+    setupSearch();
+});
+</script>
+</body>
+</html>
